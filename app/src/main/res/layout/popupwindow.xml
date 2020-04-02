@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BA111006">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="385dp"
+        android:layout_height="704dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginBottom="14dp"
+        android:text="Le barbu est un jeu d’alcool pouvant se jouer de 2 à 10.\n \nIl se joue normalement avec un jeu de 52 cartes. \n \nLes cartes de 2 à 6 sont des gorgées à distribuer,\nles autres sont des cartes spéciales (mini jeux, ajout de règle personnalisée) qui vous seront expliquées lors de votre partie.\n \nBonne partie  ;-)  \n\nFCI Studio "
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+</RelativeLayout>
