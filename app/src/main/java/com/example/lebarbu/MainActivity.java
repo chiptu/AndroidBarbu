@@ -14,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton imageBtnAds;
     private ImageButton imagebtnPi;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
 
@@ -45,14 +48,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        AccesBDD MaDb = new AccesBDD(this);
+        MaDb.open();
+        MaDb.RegleDeBases();
+        MaDb.close();
 
-        MySQLite MaDb = new MySQLite(getApplicationContext());
     }
-
 
 
     public void openJoueurs(){
         Intent intent = new Intent(this, Main2Activity.class);
+
+
         startActivity(intent);
 
 

@@ -58,8 +58,11 @@ public class Main2Activity extends AppCompatActivity
 
 
 
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main2);
@@ -77,9 +80,13 @@ public class Main2Activity extends AppCompatActivity
         btnPartie = (Button) findViewById(R.id.btnPartie);
 
 
-        btnRetour.setOnClickListener(new View.OnClickListener() {
+
+
+        btnRetour.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 openRetour();
             }
         });
@@ -87,9 +94,11 @@ public class Main2Activity extends AppCompatActivity
 
 
 
-        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
                 // Do your stuff at item selection time p// position +1
 
 
@@ -163,21 +172,27 @@ public class Main2Activity extends AppCompatActivity
         lesTextView.add(t10);
 
 
+
+
         btnPartie.setOnClickListener(new View.OnClickListener()
         {
+
 
             @Override
             public void onClick(View view)
             {
 
+
                 PrenomRempli = true;
+
+                String[] TabPrenoms = new String[position2];
 
                 for (int k=0; k< position2;k++)
                 {
                     String verif = lesEditText.get(k).getText().toString();
 
-                   /* Toast toast2 = Toast.makeText(getApplicationContext(), "verif :"+position2, Toast.LENGTH_LONG);
-                    toast2.show();*/
+                    TabPrenoms[k] = verif;
+
 
                     if (verif.matches(""))
                     {
@@ -194,8 +209,15 @@ public class Main2Activity extends AppCompatActivity
                 }
                 else
                 {
-                    Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
-                    startActivity(intent);
+                    AccesBDD MaDb = new AccesBDD(getApplicationContext());
+                    MaDb.open();
+                    String MaRequete = MaDb.AjouterLesPrenoms(TabPrenoms);
+
+                    Toast toast2 = Toast.makeText(getApplicationContext(), MaRequete, Toast.LENGTH_LONG);
+                    toast2.show();
+                    MaDb.close();
+                    //Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
+                    //startActivity(intent);
                 }
 
 

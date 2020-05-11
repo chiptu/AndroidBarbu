@@ -21,10 +21,12 @@ public class MySQLite extends SQLiteOpenHelper
 
 
 
-        public MySQLite(Context pcontext)
+        public MySQLite(Context context)
 
         {
-            super(pcontext,nomBD,null,versionBD);
+
+            super(context,nomBD,null,versionBD);
+            SQLiteDatabase MaDb = this.getWritableDatabase();
         }
 
         @Override
@@ -49,7 +51,7 @@ public class MySQLite extends SQLiteOpenHelper
             db.execSQL(requeteDropTableRegles);
             db.execSQL(requeteDropTablePrenoms);
             onCreate(db);
-            Log.d("Test","Passage dans onDowngrade");
+            Log.d("Test","Passage dans onUpgrade");
 
         }
 }
