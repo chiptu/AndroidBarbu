@@ -96,14 +96,14 @@ public class AccesBDD
         String requeteSupprimerLesRegles ="DELETE FROM REGLES;";
         bdd.execSQL(requeteSupprimerLesRegles);
 
-        String requeteAjouterLesRegles ="INSERT INTO REGLES (idCarte,nomCarte,nomRegle,descriptifRegle) VALUES (7,'sept','Dans ma valise','Pour jouer à \"Dans ma valise\" il faut qu un premier joueur prononce la phrase \"Dans ma valise il y a...\" et ajoute un mot pour compléter la phrase. Le deuxième joueur doit reprendre entièrement la phrase du premier joueur et y ajouter aussi un mot.Le jeu continue ainsi jusqu à ce qu un joueur se trompe !'),";
-        requeteAjouterLesRegles += "(8, 'huit', 'J ai déjà/ je n ai jamais','Le joueur dont c est le tour dit quelque chose qui l a déjà ou jamais fait et ceux dont ce n est pas le cas boivent'),";
-        requeteAjouterLesRegles += "(9, 'neuf', 'L anecdote', 'Le joueur dont c est le tour doit raconter une anecdote vraie ou fausse.'),";
-        requeteAjouterLesRegles += "(10, 'dix', 'Qui pourrait', 'Le joueur dont c est le tour doit dire une fantaisie après un décompte de 3 secondes chacun doit pointer du doigt la personne et chacun doit boire autant de gorgées qu il est désigné'),";
-        requeteAjouterLesRegles += "(11, 'valet', 'Tu es le roi des pouces', 'Le joueur dont c est le tour devient le roi des pouces. Dès qu il met son pouce sur son menton tout le monde doit faire de même ,le dernier a perdu'),";
-        requeteAjouterLesRegles += "(12, 'dame', 'Tournée générale', 'Tous les joueurs boivent le même nombre de gorgées'),";
-        requeteAjouterLesRegles += "(13, 'roi', 'Invente une règle', 'Le joueur dont c est le tour invente une règle et peut enlever une règle précédente si l envie lui prend.'),";
-        requeteAjouterLesRegles += "(14, 'as', 'Cul Sec!', 'Le joueur dont c est le tour doit prendre cul sec.');";
+        String requeteAjouterLesRegles ="INSERT INTO REGLES (idCarte,nomCarte,nomRegle,descriptifRegle) VALUES (7,'SEPT','Dans ma valise','Pour jouer à \"Dans ma valise\" il faut qu un premier joueur prononce la phrase \"Dans ma valise il y a...\" et ajoute un mot pour compléter la phrase. Le deuxième joueur doit reprendre entièrement la phrase du premier joueur et y ajouter aussi un mot.Le jeu continue ainsi jusqu à ce qu un joueur se trompe !'),";
+        requeteAjouterLesRegles += "(8, 'HUIT', 'J ai déjà/ je n ai jamais','Le joueur dont c est le tour dit quelque chose qui l a déjà ou jamais fait et ceux dont ce n est pas le cas boivent'),";
+        requeteAjouterLesRegles += "(9, 'NEUF', 'L anecdote', 'Le joueur dont c est le tour doit raconter une anecdote vraie ou fausse.'),";
+        requeteAjouterLesRegles += "(10, 'DIX', 'Qui pourrait', 'Le joueur dont c est le tour doit dire une fantaisie après un décompte de 3 secondes chacun doit pointer du doigt la personne et chacun doit boire autant de gorgées qu il est désigné'),";
+        requeteAjouterLesRegles += "(11, 'VALET', 'Tu es le roi des pouces', 'Le joueur dont c est le tour devient le roi des pouces. Dès qu il met son pouce sur son menton tout le monde doit faire de même ,le dernier a perdu'),";
+        requeteAjouterLesRegles += "(12, 'DAME', 'Tournée générale', 'Tous les joueurs boivent le même nombre de gorgées'),";
+        requeteAjouterLesRegles += "(13, 'ROI', 'Invente une règle', 'Le joueur dont c est le tour invente une règle et peut enlever une règle précédente si l envie lui prend.'),";
+        requeteAjouterLesRegles += "(14, 'AS', 'Cul Sec!', 'Le joueur dont c est le tour doit prendre cul sec.');";
 
         bdd.execSQL(requeteAjouterLesRegles);
 

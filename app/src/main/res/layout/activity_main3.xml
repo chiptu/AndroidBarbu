@@ -8,25 +8,27 @@
     tools:context=".Main3Activity" >
 
     <TextView
-        android:id="@+id/textView13"
-        android:layout_width="209dp"
-        android:layout_height="51dp"
-        android:gravity="center"
+        android:id="@+id/tPrenom"
+        android:layout_width="396dp"
+        android:layout_height="50dp"
+        android:gravity="center|left"
         android:lineSpacingExtra="8sp"
-        android:text="Prenom"
+        android:paddingLeft="100px"
+        android:text="Carte pioché par"
         android:textAllCaps="false"
         android:textColor="#881A1A"
         android:textSize="30sp"
         app:fontFamily="cursive"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.147"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.997"
-        tools:text="Prenom" />
+        app:layout_constraintVertical_bias="0.998"
+        tools:text="Carte pioché par" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnPiocher"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,18 +49,45 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/c1" />
+        app:srcCompat="@drawable/doscarte" />
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="42dp"
-        android:layout_height="39dp"
-        android:background="@drawable/custom_button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/btnInfos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tPrenom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.983"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.189"
-        app:srcCompat="@android:drawable/ic_menu_help" />
+        app:layout_constraintVertical_bias="0.134"
+        app:srcCompat="@android:drawable/ic_menu_add" />
+
+    <TextView
+        android:id="@+id/tRegle"
+        android:layout_width="225dp"
+        android:layout_height="67dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="#935656"
+        android:textSize="24sp"
+        app:fontFamily="cursive"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <ImageButton
+        android:id="@+id/btnRegle"
+        android:layout_width="64dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="344dp"
+        android:layout_marginLeft="344dp"
+        android:tint="#5E4444"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@android:drawable/ic_menu_preferences" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
