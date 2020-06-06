@@ -211,13 +211,11 @@ public class Main2Activity extends AppCompatActivity
                 {
                     AccesBDD MaDb = new AccesBDD(getApplicationContext());
                     MaDb.open();
-                    String MaRequete = MaDb.AjouterLesPrenoms(TabPrenoms);
-
-                    Toast toast2 = Toast.makeText(getApplicationContext(), MaRequete, Toast.LENGTH_LONG);
-                    toast2.show();
+                    MaDb.supprimerLesPrenoms();
+                    MaDb.AjouterLesPrenoms(TabPrenoms);
                     MaDb.close();
-                    //Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
-                    //startActivity(intent);
+                    Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
+                    startActivity(intent);
                 }
 
 

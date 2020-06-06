@@ -2,6 +2,10 @@ package com.example.lebarbu;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.Cursor;
+
+
+import java.util.ArrayList;
 
 // ACCESBDD VA FAIRE ROLE DE DAO (SAUF QUE LA JE N AI PAS D OBJET MAIS DES REQUETES EN DUR)
 public class AccesBDD
@@ -37,7 +41,7 @@ public class AccesBDD
         return bdd;
     }
 
-    public String AjouterLesPrenoms(String [] LesPrenoms)
+    public void AjouterLesPrenoms(String [] LesPrenoms)
 
     {
         String ajouterPrenoms ="INSERT INTO PRENOMS (idPrenom,nomPrenom) VALUES ";
@@ -56,7 +60,7 @@ public class AccesBDD
             }
 
         }
-        return ajouterPrenoms;
+        bdd.execSQL(ajouterPrenoms);
     }
 
 
@@ -68,8 +72,27 @@ public class AccesBDD
         bdd.execSQL(requeteSupprimerLesPrenoms);
     }
 
+    public ArrayList<String> getLesPrenoms()
+    {
+        /*String requeteRecupererPrenoms ="SELECT * FROM PRENOMS;";
+        bdd.execSQL(requeteRecupererPrenoms);*/
+
+        ArrayList<String> array_list = new ArrayList<String>();
+
+        Cursor res = bdd.rawQuery( "SELECT * FROM PRENOMS", null );
+        res.moveToFirst();
+        while(res.isAfterLast() == false) {
+            array_list.add(res.getString(res.getColumnIndex("idPrenom")));
+            array_list.add(res.getString(res.getColumnIndex("nomPrenom")));
+            res.moveToNext();
+        }
+        return array_list;
+
+    }
+
     public void RegleDeBases()
     {
+
         String requeteSupprimerLesRegles ="DELETE FROM REGLES;";
         bdd.execSQL(requeteSupprimerLesRegles);
 
@@ -94,9 +117,30 @@ public class AccesBDD
         bdd.execSQL(requeteSupprimerLesRegles);
     }
 
-    public void ModifierRegle(int idCarte , String nomCarte, String nomRegle, String descriptifRegle)
+    public void ModifierRegle(int idCarte , String nomRegle, String descriptifRegle)
     {
+        String requeteModifierRegle ="UPDATE REGLES SET nomRegle='"+nomRegle+"', descriptifRegle ='"+descriptifRegle+"' WHERE idCarte ="+idCarte+";";
+    }
 
+    public ArrayList<String> getLesRegles()
+    {
+        /*String requeteRecupererRegles ="SELECT * FROM REGLES;";
+        bdd.execSQL(requeteRecupererRegles);
+        Impossible read avec execsql car void*/
+
+
+        ArrayList<String> array_list = new ArrayList<String>();
+
+        Cursor res = bdd.rawQuery( "SELECT * FROM REGLES", null );
+        res.moveToFirst();
+        while(res.isAfterLast() == false) {
+        array_list.add(res.getString(res.getColumnIndex("idCarte")));
+        array_list.add(res.getString(res.getColumnIndex("nomCarte")));
+            array_list.add(res.getString(res.getColumnIndex("nomRegle")));
+            array_list.add(res.getString(res.getColumnIndex("descriptifRegle")));
+        res.moveToNext();
+        }
+        return array_list;
     }
 
 

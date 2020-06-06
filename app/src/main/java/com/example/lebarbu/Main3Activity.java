@@ -6,6 +6,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class Main3Activity extends AppCompatActivity {
 
     private TextView t11;
@@ -15,9 +17,13 @@ public class Main3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        t11 = (TextView) findViewById(R.id.editText11);
+        AccesBDD MaDb = new AccesBDD(getApplicationContext());
+        MaDb.open();
+        ArrayList <String> monArray = new ArrayList<String>();
+        monArray = MaDb.getLesPrenoms();
+        MaDb.close();
 
-        Toast toast1 = Toast.makeText(getApplicationContext(), "Mon test", Toast.LENGTH_LONG);
+        Toast toast1 = Toast.makeText(getApplicationContext(),"0 : "+ monArray.get(0)+ " 1 : "+monArray.get(1) , Toast.LENGTH_LONG);
         toast1.show();
     }
 }
