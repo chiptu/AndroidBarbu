@@ -88,6 +88,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.009"
-        ads:adSize="BANNER"/>
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-6908871832106218/4881643740"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
