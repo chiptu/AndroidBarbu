@@ -13,6 +13,9 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button btnJouer;
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
 
     {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -35,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
+
+
+
 
         btnJouer = (Button) findViewById(R.id.btnJouer);
         imageBtnAds = (ImageButton) findViewById(R.id.imageBtnAds);
@@ -66,8 +73,26 @@ public class MainActivity extends AppCompatActivity {
 
         AccesBDD MaDb = new AccesBDD(this);
         MaDb.open();
-        MaDb.RegleDeBases();
+
+
+        final ArrayList<String> ArrayRegle = MaDb.getLesRegles();
+
+        /*
+        Toast toast = Toast.makeText(getApplicationContext(), ArrayRegle.get(0), Toast.LENGTH_SHORT);
+        toast.show();
+
+         */
+
+        if (ArrayRegle.isEmpty())
+        {
+            MaDb.RegleDeBases();
+        }
+
+
+
         MaDb.close();
+
+
 
     }
 
@@ -81,5 +106,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
 }

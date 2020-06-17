@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MainActivity4" />
         <activity
             android:name=".Main3Activity"
             android:screenOrientation="portrait" />
@@ -32,13 +33,10 @@
             android:name=".Pop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.CustomTheme" />
-
         <activity
             android:name=".Pop2"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.CustomTheme"
-            />
-
+            android:theme="@style/AppTheme.CustomTheme" />
 
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"

@@ -128,7 +128,7 @@ public class Main3Activity extends AppCompatActivity {
                         if (numCarte % 13 ==1)
                         {
                             tRegle.setText(ArrayRegle.get(29)+"!"+" "+ArrayRegle.get(30) );
-                            Pop2.setMaRegle(ArrayRegle.get(30));
+                            Pop2.setMaRegle(ArrayRegle.get(31));
                         }
                         else if (numCarte % 13 ==7)
                         {
@@ -221,14 +221,23 @@ public class Main3Activity extends AppCompatActivity {
             }
         });
 
-
+        btnRegle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Main3Activity.this, MainActivity4.class));
+            }
+        });
     }
+
+
 
     public void openRetour()
     {
         Intent intent = new Intent(this, Main2Activity.class);
         startActivity(intent);
     }
+
+
 
     public void toastMessage()
     {

@@ -19,7 +19,11 @@ public class AccesBDD
     public AccesBDD(Context context)
     {
         //On crée la BDD et sa table
-        maBaseSQLite = new MySQLite(context);
+        if (maBaseSQLite == null)
+        {
+             maBaseSQLite = new MySQLite(context);
+
+        }
     }
 
 
@@ -120,7 +124,9 @@ public class AccesBDD
     public void ModifierRegle(int idCarte , String nomRegle, String descriptifRegle)
     {
         String requeteModifierRegle ="UPDATE REGLES SET nomRegle='"+nomRegle+"', descriptifRegle ='"+descriptifRegle+"' WHERE idCarte ="+idCarte+";";
+        bdd.execSQL(requeteModifierRegle);
     }
+
 
     public ArrayList<String> getLesRegles()
     {
@@ -128,19 +134,25 @@ public class AccesBDD
         bdd.execSQL(requeteRecupererRegles);
         Impossible read avec execsql car void*/
 
+        try {
 
-        ArrayList<String> array_list = new ArrayList<String>();
+            ArrayList<String> array_list = new ArrayList<String>();
 
-        Cursor res = bdd.rawQuery( "SELECT * FROM REGLES", null );
-        res.moveToFirst();
-        while(res.isAfterLast() == false) {
-        array_list.add(res.getString(res.getColumnIndex("idCarte")));
-        array_list.add(res.getString(res.getColumnIndex("nomCarte")));
-            array_list.add(res.getString(res.getColumnIndex("nomRegle")));
-            array_list.add(res.getString(res.getColumnIndex("descriptifRegle")));
-        res.moveToNext();
+            Cursor res = bdd.rawQuery("SELECT * FROM REGLES", null);
+            res.moveToFirst();
+            while (res.isAfterLast() == false) {
+                array_list.add(res.getString(res.getColumnIndex("idCarte")));
+                array_list.add(res.getString(res.getColumnIndex("nomCarte")));
+                array_list.add(res.getString(res.getColumnIndex("nomRegle")));
+                array_list.add(res.getString(res.getColumnIndex("descriptifRegle")));
+                res.moveToNext();
+            }
+            return array_list;
         }
-        return array_list;
+        catch(Exception e)
+        {
+            return null;
+        }
     }
 
 
