@@ -23,6 +23,7 @@ public class Main3Activity extends AppCompatActivity {
     private ImageButton btnRegle;
     private ImageButton btnRetour;
     private ImageView Carte;
+    private ImageView Carte2;
     private int monNum = -1;
 
     private TextView tRegle;
@@ -49,6 +50,8 @@ public class Main3Activity extends AppCompatActivity {
 
         final ArrayList <String> ArrayRegle = MaDb.getLesRegles();
 
+        int[] HistoriqueCarte;
+
         MaDb.close();
 
         btnPiocher = (Button) findViewById(R.id.btnPiocher);
@@ -56,6 +59,8 @@ public class Main3Activity extends AppCompatActivity {
         btnRegle = (ImageButton) findViewById(R.id.btnRegle);
 
         Carte = (ImageView) findViewById(R.id.imageView) ;
+
+        Carte2 = (ImageView) findViewById(R.id.imageView2) ;
 
         tPrenom = (TextView) findViewById(R.id.tPrenom);
 
@@ -70,6 +75,8 @@ public class Main3Activity extends AppCompatActivity {
         CarteJoue.add(0);
 
         btnInfos.setVisibility(View.INVISIBLE);
+
+        Carte2.setVisibility(View.INVISIBLE);
 
         btnPiocher.setOnClickListener(new View.OnClickListener()
         {
@@ -86,6 +93,8 @@ public class Main3Activity extends AppCompatActivity {
                    Carte.setImageResource(idcarte);
                     tRegle.setText("Toutes les cartes ont été piochées");
                     tPrenom.setText("Veuillez piocher une carte");
+
+                    Carte2.setVisibility(View.INVISIBLE);
                 }
                 else
                     {
@@ -166,9 +175,24 @@ public class Main3Activity extends AppCompatActivity {
 
                         String macarte = "c"+String.valueOf(numCarte);
 
+
                         int idcarte = getResources().getIdentifier(macarte,"drawable",getPackageName());
 
+
                         Carte.setImageResource(idcarte);
+
+                        if (CarteJoue.size()>2)
+                        {
+                            Carte2.setVisibility(View.VISIBLE);
+
+                            String ancienneCarte = "c"+String.valueOf(CarteJoue.get(CarteJoue.size()-2));
+
+                            int idcarte2 = getResources().getIdentifier(ancienneCarte,"drawable",getPackageName());
+
+                            Carte2.setImageResource(idcarte2);
+                        }
+
+
                     }
 
 
